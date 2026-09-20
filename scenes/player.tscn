@@ -1,0 +1,398 @@
+[gd_scene load_steps=33 format=3 uid="uid://df5f7ynlhoqe8"]
+
+[ext_resource type="Script" uid="uid://df41nqob2h6lo" path="res://scripts/player.gd" id="1_a8ls1"]
+[ext_resource type="Texture2D" uid="uid://uuv15orxhep4" path="res://assets/character_idle_animation/Character3M_1_idle_0.png" id="1_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://m1vj82mqvheg" path="res://assets/character_idle_animation/Character3M_1_idle_4.png" id="2_dqkch"]
+[ext_resource type="Texture2D" uid="uid://dplsoefxdkpa0" path="res://assets/character_idle_animation/Character3M_1_idle_7.png" id="3_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://oto3l0d0eaol" path="res://assets/character_run_animation/Character3M_1_run_1.png" id="4_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://ce88hee2hdgus" path="res://assets/character_run_animation/Character3M_1_run_2.png" id="5_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://drd3ot6b7668o" path="res://assets/character_run_animation/Character3M_1_run_3.png" id="6_jej6c"]
+[ext_resource type="Texture2D" uid="uid://gruasvuwjym2" path="res://assets/character_run_animation/Character3M_1_run_4.png" id="7_f1ej7"]
+[ext_resource type="Texture2D" uid="uid://d2wat8sjtg4d2" path="res://assets/character_run_animation/Character3M_1_run_5.png" id="8_oprun"]
+[ext_resource type="Texture2D" uid="uid://b5urrp3meek4b" path="res://assets/character_run_animation/Character3M_1_run_6.png" id="9_a8ls1"]
+[ext_resource type="Texture2D" uid="uid://beowgsnufheh2" path="res://assets/character_run_animation/Character3M_1_run_7.png" id="10_qfm1y"]
+[ext_resource type="Texture2D" uid="uid://c1gfraplxrthw" path="res://assets/character_run_animation/Character3M_1_run_0.png" id="11_fulsm"]
+[ext_resource type="Texture2D" uid="uid://d4ee2yre0csbl" path="res://assets/character_death_animation/playerDeathOne.png" id="12_oprun"]
+[ext_resource type="Texture2D" uid="uid://dxt73ho42ql7k" path="res://assets/character_death_animation/playerDeathTwo.png" id="13_a8ls1"]
+[ext_resource type="Texture2D" uid="uid://c37odwk1vbt6j" path="res://assets/character_death_animation/playerDeathThree.png" id="14_qfm1y"]
+[ext_resource type="Texture2D" uid="uid://gtso5mfxordv" path="res://assets/character_death_animation/playerDeathFour.png" id="15_fulsm"]
+[ext_resource type="AudioStream" uid="uid://6bqr60m8vspy" path="res://sounds/screams/screamOne.wav" id="17_qfm1y"]
+[ext_resource type="Texture2D" uid="uid://cfbwm3mdujv18" path="res://assets/UI/Arrow (1).png" id="18_fulsm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhqgy"]
+radius = 5.0
+height = 16.0
+
+[sub_resource type="Animation" id="Animation_fjrip"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_qhqgy")]
+}
+
+[sub_resource type="Animation" id="Animation_fulsm"]
+resource_name = "Up Button Clicked"
+length = 0.14
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_60mlk"]
+resource_name = "death"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("12_oprun"), ExtResource("13_a8ls1"), ExtResource("14_qfm1y"), ExtResource("15_fulsm")]
+}
+
+[sub_resource type="Animation" id="Animation_tuyoq"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_qhqgy"), ExtResource("2_dqkch"), ExtResource("2_dqkch"), ExtResource("3_qlg0r")]
+}
+
+[sub_resource type="Animation" id="Animation_4r5pv"]
+resource_name = "run"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("11_fulsm"), ExtResource("4_d2wvv"), ExtResource("5_3v2ag"), ExtResource("6_jej6c"), ExtResource("7_f1ej7"), ExtResource("8_oprun"), ExtResource("9_a8ls1"), ExtResource("10_qfm1y"), ExtResource("11_fulsm")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_smehm"]
+_data = {
+&"RESET": SubResource("Animation_fjrip"),
+&"Up Button Clicked": SubResource("Animation_fulsm"),
+&"death": SubResource("Animation_60mlk"),
+&"idle": SubResource("Animation_tuyoq"),
+&"run": SubResource("Animation_4r5pv")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4r5pv"]
+
+[sub_resource type="Animation" id="Animation_4ni07"]
+resource_name = "Down Button Clicked"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Down/Down-Png:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.03, 0.03), Vector2(0.028, 0.028)]
+}
+
+[sub_resource type="Animation" id="Animation_l71n6"]
+resource_name = "Left Button Clicked"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Left/Left-Png:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.03, 0.03), Vector2(0.028, 0.028)]
+}
+
+[sub_resource type="Animation" id="Animation_a38lo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Up/Up-Png:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.03, 0.03)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Down/Down-Png:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.03, 0.03)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Left/Left-Png:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.03, 0.03)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Right/Right-Png:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.03, 0.03)]
+}
+
+[sub_resource type="Animation" id="Animation_ke2ow"]
+resource_name = "Right Button Clicked"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Right/Right-Png:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.03, 0.03), Vector2(0.028, 0.028)]
+}
+
+[sub_resource type="Animation" id="Animation_i4ail"]
+resource_name = "Up Button Clicked"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Up/Up-Png:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.03, 0.03), Vector2(0.028, 0.028)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ni07"]
+_data = {
+&"Down Button Clicked": SubResource("Animation_4ni07"),
+&"Left Button Clicked": SubResource("Animation_l71n6"),
+&"RESET": SubResource("Animation_a38lo"),
+&"Right Button Clicked": SubResource("Animation_ke2ow"),
+&"Up Button Clicked": SubResource("Animation_i4ail")
+}
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 3
+script = ExtResource("1_a8ls1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qhqgy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_qhqgy")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+limit_left = -175
+limit_right = 200
+limit_bottom = 150
+position_smoothing_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_smehm")
+}
+autoplay = "idle"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_qfm1y")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Up" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 76.99999
+offset_top = -318.0
+offset_right = 157.55554
+offset_bottom = -251.10223
+grow_vertical = 0
+scale = Vector2(1.8, 1.8)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4r5pv")
+
+[node name="Up-Png" type="Sprite2D" parent="CanvasLayer/Control/Up"]
+position = Vector2(39.444454, 33.888885)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("18_fulsm")
+
+[node name="Down" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 86.0
+offset_top = -147.00003
+offset_right = 158.77777
+offset_bottom = -85.888916
+grow_vertical = 0
+scale = Vector2(1.8, 1.8)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4r5pv")
+
+[node name="Down-Png" type="Sprite2D" parent="CanvasLayer/Control/Down"]
+position = Vector2(37.194435, 29.472229)
+rotation = -3.1415925
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("18_fulsm")
+
+[node name="Right" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 982.99994
+offset_top = -179.0
+offset_right = 1043.0
+offset_bottom = -125.666626
+grow_vertical = 0
+scale = Vector2(1.8, 1.8)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4r5pv")
+
+[node name="Right-Png" type="Sprite2D" parent="CanvasLayer/Control/Right"]
+position = Vector2(27.316772, 26.083344)
+rotation = 1.5707964
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("18_fulsm")
+
+[node name="Left" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 808.0
+offset_top = -192.0
+offset_right = 868.0
+offset_bottom = -129.77777
+grow_vertical = 0
+scale = Vector2(1.8, 1.8)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_4r5pv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4r5pv")
+
+[node name="Left-Png" type="Sprite2D" parent="CanvasLayer/Control/Left"]
+position = Vector2(30.84729, 31.577759)
+rotation = -1.5707964
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("18_fulsm")
+
+[node name="UI_animations" type="AnimationPlayer" parent="CanvasLayer"]
+libraries = {
+&"": SubResource("AnimationLibrary_4ni07")
+}
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="button_down" from="CanvasLayer/Control/Up" to="." method="_on_up_button_down"]
+[connection signal="button_up" from="CanvasLayer/Control/Up" to="." method="_on_up_button_up"]
+[connection signal="button_down" from="CanvasLayer/Control/Down" to="." method="_on_down_button_down"]
+[connection signal="button_up" from="CanvasLayer/Control/Down" to="." method="_on_down_button_up"]
+[connection signal="button_down" from="CanvasLayer/Control/Right" to="." method="_on_right_button_down"]
+[connection signal="button_up" from="CanvasLayer/Control/Right" to="." method="_on_right_button_up"]
+[connection signal="button_down" from="CanvasLayer/Control/Left" to="." method="_on_left_button_down"]
+[connection signal="button_up" from="CanvasLayer/Control/Left" to="." method="_on_left_button_up"]

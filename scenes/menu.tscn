@@ -1,0 +1,206 @@
+[gd_scene load_steps=13 format=3 uid="uid://cn2csuf6638qx"]
+
+[ext_resource type="Script" uid="uid://difk5xheafdb0" path="res://scripts/menu.gd" id="1_vjb58"]
+[ext_resource type="Texture2D" uid="uid://dhgat0guf0chy" path="res://assets/menu_background/main_menu_background.png" id="2_vjb58"]
+[ext_resource type="Texture2D" uid="uid://hvsn56u6sx06" path="res://assets/UI/PlayButton_PNG.png" id="3_mhnvy"]
+[ext_resource type="Texture2D" uid="uid://b05vlacn476wn" path="res://assets/UI/QuitButton_PNG.png" id="4_4ytvr"]
+[ext_resource type="Texture2D" uid="uid://b72n3dpnmof0h" path="res://assets/UI/Indian_ROads_Title.png" id="5_4ytvr"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yqeox"]
+blend_mode = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g3eks"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ytvr"]
+
+[sub_resource type="Animation" id="Animation_4ytvr"]
+resource_name = "Play Button Clicked"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Png:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.21, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.09, 0.09), Vector2(0.085, 0.085), Vector2(0.09, 0.09)]
+}
+
+[sub_resource type="Animation" id="Animation_v86rl"]
+resource_name = "Quit Button Clicked"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../QuitButton/Png:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.21, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.18, 0.18), Vector2(0.17, 0.17), Vector2(0.18, 0.18)]
+}
+
+[sub_resource type="Animation" id="Animation_g3eks"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Png:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.09, 0.09)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../QuitButton/Png:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.18, 0.18)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_13sgg"]
+_data = {
+&"Play Button Clicked": SubResource("Animation_4ytvr"),
+&"Quit Button Clicked": SubResource("Animation_v86rl"),
+&"RESET": SubResource("Animation_g3eks")
+}
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vjb58")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("CanvasItemMaterial_yqeox")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = -2.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vjb58")
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.5
+offset_top = -25.5
+offset_right = 63.5
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_pressed_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_hover_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_hover_pressed_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/icon_normal_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/icon_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/icon_pressed_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/icon_hover_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/icon_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g3eks")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_4ytvr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4ytvr")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_4ytvr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4ytvr")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_4ytvr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4ytvr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_4ytvr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4ytvr")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_4ytvr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4ytvr")
+text = "Play
+"
+
+[node name="Png" type="Sprite2D" parent="PlayButton"]
+position = Vector2(63.91, 28)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("3_mhnvy")
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.5
+offset_top = 64.0
+offset_right = 66.5
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_pressed_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_hover_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_hover_pressed_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/icon_normal_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/icon_focus_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/icon_pressed_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/icon_hover_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/icon_disabled_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4ytvr")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_4ytvr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4ytvr")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_4ytvr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4ytvr")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_4ytvr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4ytvr")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_4ytvr")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4ytvr")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_4ytvr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4ytvr")
+text = "Quit
+"
+
+[node name="Png" type="Sprite2D" parent="QuitButton"]
+position = Vector2(63.44, 31.38)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("4_4ytvr")
+
+[node name="Anims" type="AnimationPlayer" parent="."]
+root_node = NodePath("../PlayButton")
+libraries = {
+&"": SubResource("AnimationLibrary_13sgg")
+}
+
+[node name="Title And Subtitle" type="Sprite2D" parent="."]
+position = Vector2(576, 186)
+scale = Vector2(0.44, 0.44)
+texture = ExtResource("5_4ytvr")
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
