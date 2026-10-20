@@ -1,5 +1,4 @@
 extends Control
-@onready var distance_travelled: Label = $DistanceTravelled
 @onready var Animation_tree = $Anims
 func _on_play_button_pressed() -> void:
 	Animation_tree.play("Play Button Clicked")

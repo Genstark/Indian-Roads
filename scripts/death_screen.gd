@@ -1,5 +1,4 @@
 extends Control
-@onready var UI_Anims = $UI_Anims
 @onready var quote : Label = $Quote
 var quotes : Array[String] = ["You died in excruciating pain with your remanins scattered everywhere around which would always spook the school going kids for in their sleep."
 , "Now certainly your dream of getting your family out of poverty is forever vanished leaving them in trauma and misery for the rest of their lives.",
